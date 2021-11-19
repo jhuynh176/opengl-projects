@@ -35,11 +35,27 @@ that are due to the lighting) effects to the following objects from your scene:
 
 #define WIDTH 640
 #define HEIGHT 640
-#define PI 3.14159265358979323846
 
+static int width;
+static int height;
+
+#define PI 3.14159265358979323846
+int n = 0;
+/*
+---------------------------------------------------
+---------------------------------------------------
+    Section - Function Declare
+---------------------------------------------------
+---------------------------------------------------
+*/
 //Setting up window
 void myInit();
 void myDisplay();
+static void reshape(int w, int h);
+void viewport_bottom_left();
+void viewport_bottom_right();
+void viewport_top_left();
+void viewport_top_right();
 
 //Interpreting keyboard strikes of "P,L,T,S,H,C, and U"
 void myKeyboard(unsigned char theKey, int mouseX, int mouseY);
@@ -53,6 +69,7 @@ void objectOctagon();
 void objectCircle();
 void objectCube();
 void objectSphere();
+void objectPlanes();
 //Rendering objects
 void renderPoint();
 void renderLine();
@@ -62,36 +79,52 @@ void renderOctagon();
 void renderCircle();
 void renderCube_right();
 void renderCube_top();
-void renderCube_shadow();
-void renderSphere_right();
 void renderSphere_center();
-void renderSphere_left();
 //Shadow
-void renderCube_shadow();
-void renderSphere_shadow();
+void renderShadow();
+void renderShadow_top_left();
+void renderShadow_top_right();
+void renderShadow_bottom_left();
+void renderShadow_bottom_right();
+
+//xyz planes
+void renderPlanes();
 //Show all render
 void showAllRender();
-
-//Show all light
-void draw_light_point_line();
-void draw_light_triangle();
-void draw_light_square();
-void draw_light_octagon();
-void draw_light_circle();
-void draw_light_cube_right();
-void draw_light_cube_top();
-void draw_light_sphere_right();
-void draw_light_sphere_center();
-void draw_light_sphere_left();
-void draw_light_sphere_shadow();
-
+//Draw light
+void drawLight_point_line();
+void drawLight_triangle();
+void drawLight_square();
+void drawLight_octagon();
+void drawLight_circle();
+void drawLight_cube_right();
+void drawLight_cube_top();
+void drawLight_sphere_center();
+void drawLight_shadow();
+void drawLight_planes();
+//Move light
+void moveLight();
+//Show light
 void showLight_Global();
 void showLight_Ambient();
 void showLight_Fixed();
-void showLight_Directed();
 void showLight_Spot();
+void showLight_Directed();
+void showLight_Directed_top_left();
+void showLight_Directed_top_right();
+void showLight_Directed_bottom_left();
+void showLight_Directed_bottom_right();
 void showAllLight();
-
+/*
+---------------------------------------------------
+---------------------------------------------------
+    Section - Function Definition
+---------------------------------------------------
+---------------------------------------------------
+*/
+/*
+    Section - Show Light Sources
+*/
 void showLight_Global() {
     //lighting set up
     glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
@@ -132,19 +165,6 @@ void showLight_Fixed() {
     glLightfv(GL_LIGHT1, GL_DIFFUSE, lightDiffusion_0);
     glLightfv(GL_LIGHT1, GL_SPECULAR, lightSpecular_0);
 }
-void showLight_Directed() {
-    //directed light
-    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
-    glEnable(GL_LIGHT2);
-    GLfloat lightPosition_1[4] = { 120.0f, -130.f, 130.0f, 0.0f };
-    GLfloat lightDiffusion_1[4] = { 0.25f, 0.25f, 0.25f, 1.0f };
-    GLfloat lightAmbient_1[4] = { 0.0125f, 0.0125f, 0.0125f, 1.0f };
-    GLfloat lightSpecular_1[4] = { 0.95f, 0.95f, 0.95f, 1.0f };
-    glLightfv(GL_LIGHT2, GL_AMBIENT, lightAmbient_1);
-    glLightfv(GL_LIGHT2, GL_POSITION, lightPosition_1);
-    glLightfv(GL_LIGHT2, GL_DIFFUSE, lightDiffusion_1);
-    glLightfv(GL_LIGHT2, GL_SPECULAR, lightSpecular_1);
-}
 void showLight_Spot() {
     //spotlight
     glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
@@ -171,15 +191,83 @@ void showLight_Spot() {
     //glEnable(GL_NORMALIZE);
     //glEnable(GL_CULL_FACE);
 }
+void showLight_Directed() {
+    //directed light
+    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
+    glEnable(GL_LIGHT2);
+    GLfloat lightPosition_1[4] = { 120.0f, -130.f, 130.0f, 0.0f };
+    GLfloat lightDiffusion_1[4] = { 0.25, 0.25, 0.25, 1.0f };
+    GLfloat lightAmbient_1[4] = { 0.125, 0.125, 0.125, 1.0f };
+    GLfloat lightSpecular_1[4] = { 0.95f, 0.95f, 0.95f, 1.0f };
+    glLightfv(GL_LIGHT2, GL_AMBIENT, lightAmbient_1);
+    glLightfv(GL_LIGHT2, GL_POSITION, lightPosition_1);
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, lightDiffusion_1);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, lightSpecular_1);
+}
+void showLight_Directed_top_left() {
+    //directed light
+    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
+    glEnable(GL_LIGHT2);
+    GLfloat lightPosition_1[4] = { 120.0f, -130.f, -300, 0.0f };
+    GLfloat lightDiffusion_1[4] = { 0.2, 0.2, 0.2, 1.0f };
+    GLfloat lightAmbient_1[4] = { 0.2, 0.2, 0.2, 1.0f };
+    GLfloat lightSpecular_1[4] = { 0.95f, 0.95f, 0.95f, 1.0f };
+    glLightfv(GL_LIGHT2, GL_AMBIENT, lightAmbient_1);
+    glLightfv(GL_LIGHT2, GL_POSITION, lightPosition_1);
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, lightDiffusion_1);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, lightSpecular_1);
+}
+void showLight_Directed_top_right() {
+    //directed light
+    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
+    glEnable(GL_LIGHT2);
+    GLfloat lightPosition_1[4] = { 120.0f, -130.f, -100, 0.0f };
+    GLfloat lightDiffusion_1[4] = { 0.4, 0.4, 0.4, 1.0f };
+    GLfloat lightAmbient_1[4] = { 0.4, 0.4, 0.4, 1.0f };
+    GLfloat lightSpecular_1[4] = { 0.95f, 0.95f, 0.95f, 1.0f };
+    glLightfv(GL_LIGHT2, GL_AMBIENT, lightAmbient_1);
+    glLightfv(GL_LIGHT2, GL_POSITION, lightPosition_1);
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, lightDiffusion_1);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, lightSpecular_1);
+}
+void showLight_Directed_bottom_left() {
+    //directed light
+    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
+    glEnable(GL_LIGHT2);
+    GLfloat lightPosition_1[4] = { 120.0f, -130.f, 100, 0.0f };
+    GLfloat lightDiffusion_1[4] = { 0.4, 0.4, 0.4, 1.0f };
+    GLfloat lightAmbient_1[4] = { 0.4, 0.4, 0.4, 1.0f };
+    GLfloat lightSpecular_1[4] = { 0.95f, 0.95f, 0.95f, 1.0f };
+    glLightfv(GL_LIGHT2, GL_AMBIENT, lightAmbient_1);
+    glLightfv(GL_LIGHT2, GL_POSITION, lightPosition_1);
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, lightDiffusion_1);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, lightSpecular_1);
+}
+void showLight_Directed_bottom_right() {
+    //directed light
+    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
+    glEnable(GL_LIGHT2);
+    GLfloat lightPosition_1[4] = { 120.0f, -130.f, 300, 0.0f };
+    GLfloat lightDiffusion_1[4] = { 0.6, 0.6, 0.6, 1.0f };
+    GLfloat lightAmbient_1[4] = { 0.6, 0.6, 0.6, 1.0f };
+    GLfloat lightSpecular_1[4] = { 0.95f, 0.95f, 0.95f, 1.0f };
+    glLightfv(GL_LIGHT2, GL_AMBIENT, lightAmbient_1);
+    glLightfv(GL_LIGHT2, GL_POSITION, lightPosition_1);
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, lightDiffusion_1);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, lightSpecular_1);
+}
 void showAllLight() {
     showLight_Spot();
-    showLight_Directed();
     showLight_Fixed();
     showLight_Ambient();
     showLight_Global();
-}
+    //showLight_Directed();
 
-void draw_light_point_line() {
+}
+/*
+    Section - Draw Light
+*/
+void drawLight_point_line() {
     //glClear(GL_COLOR_BUFFER_BIT);
 
     //Set material properties
@@ -191,7 +279,7 @@ void draw_light_point_line() {
     glMaterialfv(GL_FRONT, GL_SPECULAR, qaWhite);
     glMaterialf(GL_FRONT, GL_SHININESS, 10);
 }
-void draw_light_triangle() {
+void drawLight_triangle() {
     //glClear(GL_COLOR_BUFFER_BIT);
 
     //Set material properties
@@ -203,7 +291,7 @@ void draw_light_triangle() {
     glMaterialfv(GL_FRONT, GL_SPECULAR, qaWhite);
     glMaterialf(GL_FRONT, GL_SHININESS, 20);
 }
-void draw_light_square() {
+void drawLight_square() {
     //glClear(GL_COLOR_BUFFER_BIT);
 
     //Set material properties
@@ -215,7 +303,7 @@ void draw_light_square() {
     glMaterialfv(GL_FRONT, GL_SPECULAR, qaColor);
     glMaterialf(GL_FRONT, GL_SHININESS, 30);
 }
-void draw_light_octagon() {
+void drawLight_octagon() {
     //glClear(GL_COLOR_BUFFER_BIT);
 
     //Set material properties
@@ -227,7 +315,7 @@ void draw_light_octagon() {
     glMaterialfv(GL_FRONT, GL_SPECULAR, qaWhite);
     glMaterialf(GL_FRONT, GL_SHININESS, 40);
 }
-void draw_light_circle() {
+void drawLight_circle() {
     //glClear(GL_COLOR_BUFFER_BIT);
 
     //Set material properties
@@ -239,7 +327,7 @@ void draw_light_circle() {
     glMaterialfv(GL_FRONT, GL_SPECULAR, qaBlack);
     glMaterialf(GL_FRONT, GL_SHININESS, 50);
 }
-void draw_light_cube_right() {
+void drawLight_cube_right() {
     //glClear(GL_COLOR_BUFFER_BIT);
 
     //Set material properties
@@ -251,7 +339,7 @@ void draw_light_cube_right() {
     glMaterialfv(GL_FRONT, GL_SPECULAR, qaWhite);
     glMaterialf(GL_FRONT, GL_SHININESS, 60);
 }
-void draw_light_cube_top() {
+void drawLight_cube_top() {
     //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     GLfloat qaBlack[] = { 0.5, -0.1, 0.1, 1.0 };
@@ -262,18 +350,7 @@ void draw_light_cube_top() {
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, qaWhite);
     glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 70);
 }
-void draw_light_sphere_right() {
-    //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    GLfloat qaBlack[] = { 0.0, 0.0, 0.0, 1.0 };
-    GLfloat qaColor[] = { 1.0, 0.0, 1.0, 1.0 };
-    GLfloat qaWhite[] = { 1.0, -1.0, 1.0, 1.0 };
-    glMaterialfv(GL_BACK, GL_AMBIENT, qaColor);
-    glMaterialfv(GL_BACK, GL_DIFFUSE, qaColor);
-    glMaterialfv(GL_BACK, GL_SPECULAR, qaWhite);
-    glMaterialf(GL_BACK, GL_SHININESS, 100);
-}
-void draw_light_sphere_center() {
+void drawLight_sphere_center() {
     //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     GLfloat qaBlack[] = { 0.2, -0.4, 0.9, 1.0 };
@@ -284,20 +361,7 @@ void draw_light_sphere_center() {
     glMaterialfv(GL_FRONT, GL_SPECULAR, qaWhite);
     glMaterialf(GL_FRONT, GL_SHININESS, 90);
 }
-void draw_light_sphere_left() {
-    //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    showLight_Ambient();
-    GLfloat qaBlack[] = { -3.3, -0.5, -0.5, 1.0 };
-    GLfloat qaColor[] = { 4.0, 1.6, 5.0, 1.0 };
-    GLfloat qaWhite[] = { 1.0, 1.0, 1.0, 1.0 };
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, qaBlack);
-    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, qaColor);
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, qaWhite);
-    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 80);
-    glEnable(GL_NORMALIZE);
-
-}
-void draw_light_sphere_shadow() {
+void drawLight_shadow() {
     //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     GLfloat qaBlack[] = { -0.15, -0.15, -0.15, 1.0 };
@@ -308,8 +372,21 @@ void draw_light_sphere_shadow() {
     glMaterialfv(GL_FRONT, GL_SPECULAR, qaWhite);
     glMaterialf(GL_FRONT, GL_SHININESS, 90);
 }
-//---------------------------------------------------
-//---------------------------------------------------
+void drawLight_planes() {
+    //glClear(GL_COLOR_BUFFER_BIT);
+
+    //Set material properties
+    GLfloat qaBlack[] = { 0, 0, 0, 1 };
+    GLfloat qaColor[] = { 1, 1, 1, 1 };
+    GLfloat qaWhite[] = { 1, 1, 1, 1 };
+    glMaterialfv(GL_FRONT, GL_AMBIENT, qaBlack);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, qaColor);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, qaWhite);
+    glMaterialf(GL_FRONT, GL_SHININESS, 30);
+}
+/*
+    Section - Objects
+*/
 void objectPoint() {
     glBegin(GL_POINTS);
     glColor3f(1.0f, 1.0f, 1.0f);
@@ -478,13 +555,83 @@ void objectSphere() {
     }
     glFlush();
 }
-//---------------------------------------------------
-//---------------------------------------------------
+void objectPlanes() {
+    // Bottom quads (y = -1.0f)
+    glPushMatrix();
+    glTranslatef(0, 0, 0);
+    glBegin(GL_POLYGON);
+    glColor3f(1.0f, 0.5f, 0.0f); // Orange
+    glVertex3f(1.0f, -1.0f, 1.0f);
+    glVertex3f(-1.0f, -1.0f, 1.0f);
+    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glVertex3f(1.0f, -1.0f, -1.0f);
+    glEnd();
+    glPopMatrix();
+
+    //glBegin(GL_POLYGON);
+    //glColor3f(0.0f, 1.0f, 0.0f);
+    //glVertex2f(-1.0, 1.0);  // point on top left
+    //glVertex2f(1.0, 1.0);   // point on top right
+    //glVertex2f(1.0, -1.0);  // point on bottom right
+    //glVertex2f(-1.0, -1.0); // point on bottom left
+    //glEnd();
+    //glFlush();
+
+    // Left quads (x = -1.0f)
+    glBegin(GL_POLYGON);
+    glColor3f(1.0f, 0.0f, 1.0f); // Magneta
+    glVertex3f(-1.0f, 1.0f, 1.0f);
+    glVertex3f(-1.0f, 1.0f, -1.0f);
+    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glVertex3f(-1.0f, -1.0f, 1.0f);
+    glEnd();
+
+    // Back quads (z = -1.0f)
+    //glBegin(GL_POLYGON);
+    //glColor3f(1.0f, 0.0f, 0.0f); // Red
+    //glVertex3f(1.0f, -1.0f, -1.0f);
+    //glVertex3f(-1.0f, -1.0f, -1.0f);
+    //glVertex3f(-1.0f, 1.0f, -1.0f);
+    //glVertex3f(1.0f, 1.0f, -1.0f);
+    //glEnd();
+
+    //// Front quads (z = 1.0f)
+    //glBegin(GL_POLYGON);
+    //glColor3f(0.0f, 1.0f, 0.0f); // Green
+    //glVertex3f(1.0f, 1.0f, 1.0f);
+    //glVertex3f(-1.0f, 1.0f, 1.0f);
+    //glVertex3f(-1.0f, -1.0f, 1.0f);
+    //glVertex3f(1.0f, -1.0f, 1.0f);
+    //glEnd();
+
+    //// Top quads (y = 1.0f)
+    //glBegin(GL_POLYGON);
+    //glColor3f(0.0f, 0.0f, 1.0f); // Blue
+    //glVertex3f(1.0f, 1.0f, -1.0f);
+    //glVertex3f(-1.0f, 1.0f, -1.0f);
+    //glVertex3f(-1.0f, 1.0f, 1.0f);
+    //glVertex3f(1.0f, 1.0f, 1.0f);
+    //glEnd();
+
+    //// Right quads (x = 1.0f)
+    //glBegin(GL_POLYGON);
+    //glColor3f(1.0f, 1.0f, 0.0f); // Yellow
+    //glVertex3f(1.0f, 1.0f, -1.0f);
+    //glVertex3f(1.0f, 1.0f, 1.0f);
+    //glVertex3f(1.0f, -1.0f, 1.0f);
+    //glVertex3f(1.0f, -1.0f, -1.0f);
+    //glEnd();
+
+    glFlush();
+}
+/*
+    Section - Render
+*/
 void renderPoint() {
-    draw_light_point_line();
+    drawLight_point_line();
 
     glPushMatrix();
-    glTranslatef(6, 0, 0);
+    glTranslatef(6, 2, 0);
     objectPoint();
     glPopMatrix();
 }
@@ -497,7 +644,7 @@ void renderLine() {
     glPopMatrix();
 }
 void renderTriangle() {
-    draw_light_triangle();
+    drawLight_triangle();
 
     glPushMatrix();
     glTranslatef(5, 5, 0);
@@ -507,7 +654,7 @@ void renderTriangle() {
     glPopMatrix();
 }
 void renderSquare() {
-    draw_light_square();
+    drawLight_square();
 
     glPushMatrix();
     glTranslatef(-6, 0, 0);
@@ -517,7 +664,7 @@ void renderSquare() {
     glPopMatrix();
 }
 void renderOctagon() {
-    draw_light_octagon();
+    drawLight_octagon();
 
     glPushMatrix();
     glTranslatef(-5, 4, 0);
@@ -527,7 +674,7 @@ void renderOctagon() {
     glPopMatrix();
 }
 void renderCircle() {
-    draw_light_circle();
+    drawLight_circle();
 
     glPushMatrix();
     glTranslatef(-5, -5, 0);
@@ -537,7 +684,7 @@ void renderCircle() {
     glPopMatrix();
 }
 void renderCube_right() {
-    draw_light_cube_right();
+    drawLight_cube_right();
 
     glPushMatrix();
     glTranslatef(6, -2, 0);
@@ -546,7 +693,7 @@ void renderCube_right() {
     glPopMatrix();
 }
 void renderCube_top() {
-    draw_light_cube_top();
+    drawLight_cube_top();
 
     glPushMatrix();
     //gluLookAt(1, 1, 1, 0, 0, 0, 0, 1, 0);
@@ -557,72 +704,191 @@ void renderCube_top() {
     glPopMatrix();
 
 }
-void renderSphere_right() {
-    draw_light_sphere_right();
-
-    glPushMatrix();
-    glTranslatef(3, 0, 0);
-    objectSphere();
-    glPopMatrix();
-}
 void renderSphere_center() {
-    draw_light_sphere_center();
+    drawLight_sphere_center();
 
     glPushMatrix();
     glRotatef(60, 60, 40, 0);
     objectSphere();
     glPopMatrix();
 }
-void renderSphere_left() {
-    draw_light_sphere_left();
-
+void renderShadow() {
+    drawLight_shadow();
+    //top cube 
     glPushMatrix();
-    glTranslatef(-3, 0, 0);
-    glRotatef(-60, 30, 20, 0);
-    objectSphere();
+    glTranslatef(-4, 2, 0);
+    glScalef(0.5, 0.5, 0.5);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectSquare();
     glPopMatrix();
-}
-void renderSphere_shadow() {
-    draw_light_sphere_shadow();
+
+    //right cube
+    glPushMatrix();
+    glTranslatef(2, -6, 0);
+    glScalef(0.6, 0.6, 0.6);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectSquare();
+    glPopMatrix();
+
     //center sphere
     glPushMatrix();
-    glTranslatef(0, -1, 0);
+    glTranslatef(-4.5, -6, 0);
+    glScalef(0.5, 0.5, 1);
+    glRotatef(30, 0, 10, 0);
     glColor3f(0, 0, 0);
     //glRotatef(180, 45, 90, 0);
-    objectSphere();
-    glPopMatrix();
-
-    //left sphere
-    glPushMatrix();
-    glTranslatef(-4, 0, 0);
-    glColor3f(0, 0, 0);
-    //glRotatef(180, 45, 90, 0);
-    objectSphere();
-    glPopMatrix();
-
-    //right sphere
-    glPushMatrix();
-    glTranslatef(2, -1, 0);
-    glColor3f(0, 0, 0);
-    //glRotatef(200, 60, 90, 0);
-    objectSphere();
+    objectCircle();
     glPopMatrix();
 }
+void renderShadow_top_left() {
+    drawLight_shadow();
+    //top cube 
+    glPushMatrix();
+    glTranslatef(-7, 1, 0);
+    glScalef(0.5, 0.5, 0.5);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectSquare();
+    glPopMatrix();
 
+    //right cube
+    glPushMatrix();
+    glTranslatef(0, -9, 0);
+    glScalef(0.6, 0.6, 0.6);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectSquare();
+    glPopMatrix();
+
+    //center sphere
+    glPushMatrix();
+    glTranslatef(-6, -7, 0);
+    glScalef(0.5, 0.5, 1);
+    glRotatef(30, 0, 10, 0);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectCircle();
+    glPopMatrix();
+}
+void renderShadow_top_right() {
+    drawLight_shadow();
+    //top cube 
+    glPushMatrix();
+    glTranslatef(-5, 0, 0);
+    glScalef(0.5, 0.5, 0.5);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectSquare();
+    glPopMatrix();
+
+    //right cube
+    glPushMatrix();
+    glTranslatef(1, -8, 0);
+    glScalef(0.6, 0.6, 0.6);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectSquare();
+    glPopMatrix();
+
+    //center sphere
+    glPushMatrix();
+    glTranslatef(-5, -6, 0);
+    glScalef(0.5, 0.5, 1);
+    glRotatef(30, 0, 10, 0);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectCircle();
+    glPopMatrix();
+}
+void renderShadow_bottom_left() {
+    drawLight_shadow();
+    //top cube 
+    glPushMatrix();
+    glTranslatef(-3.5, -2, 0);
+    glScalef(0.5, 0.5, 0.5);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectSquare();
+    glPopMatrix();
+
+    //right cube
+    glPushMatrix();
+    glTranslatef(2, -6, 0);
+    glScalef(0.6, 0.6, 0.6);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectSquare();
+    glPopMatrix();
+
+    //center sphere
+    glPushMatrix();
+    glTranslatef(-3.5, -5, 0);
+    glScalef(0.5, 0.5, 1);
+    glRotatef(30, 0, 10, 0);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectCircle();
+    glPopMatrix();
+}
+void renderShadow_bottom_right() {
+    drawLight_shadow();
+    //top cube 
+    glPushMatrix();
+    glTranslatef(-2, -2.5, 0);
+    glScalef(0.5, 0.5, 0.5);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectSquare();
+    glPopMatrix();
+
+    //right cube
+    glPushMatrix();
+    glTranslatef(4, -5.1, 0);
+    glScalef(0.6, 0.6, 0.6);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectSquare();
+    glPopMatrix();
+
+    //center sphere
+    glPushMatrix();
+    glTranslatef(-2, -4.2, 0);
+    glScalef(0.5, 0.5, 1);
+    glRotatef(30, 0, 10, 0);
+    glColor3f(0, 0, 0);
+    //glRotatef(180, 45, 90, 0);
+    objectCircle();
+    glPopMatrix();
+}
+void renderPlanes() {
+    drawLight_planes();
+
+    glPushMatrix();
+    //glTranslatef(0, 0, -5);
+    glScalef(5, 5, 5);
+    objectPlanes();
+    glPopMatrix();
+}
 void showAllRender() {
-    showAllLight();
-
-    //
-    //objectPoint();
-    //objectLine();
-    //objectTriangle();
-    //objectSquare();
-    //objectOctagon();
-    //objectCube();
-    //objectCircle();
-    //objectSphere();
-    // 
-    renderSphere_shadow();
+    renderPlanes();
+    
+    switch (n) {
+    case 0:
+        renderShadow_top_left();
+        break;
+    case 1:
+        renderShadow_top_right();
+        break;
+    case 2:
+        renderShadow_bottom_left();
+        break;
+    case 3:
+        renderShadow_bottom_right();
+        break;
+    }
+    //renderShadow();
     renderPoint();
     renderLine();
     renderTriangle();
@@ -631,12 +897,51 @@ void showAllRender() {
     renderCircle();
     renderCube_right();
     renderCube_top();
-    renderSphere_right();
     renderSphere_center();
-    renderSphere_left();
+    //renderSphere_right();
+    //renderSphere_left();
 }
-//---------------------------------------------------
-//---------------------------------------------------
+/*
+    Section - Move Light
+*/
+void moveLight() {
+    showAllLight();
+    glPushMatrix();
+    glRotatef(40, 0, 0, 0);
+    showAllRender();
+    n++;
+    glPopMatrix();
+}
+/*
+---------------------------------------------------
+    Section - Main
+---------------------------------------------------
+*/
+void viewport_bottom_left() {
+    glColor3f(1.0f, 0.0f, 0.0f);
+    glViewport(0, 0, width / 2, height / 2);
+    glLoadIdentity();
+    glOrtho(-8, 8, -8, 8, -8, 8);
+    gluLookAt(1, 1, 1, 0, 0, 0, 0, 1, 0);
+}
+void viewport_bottom_right() {
+    glViewport(width / 2, 0, width / 2, height / 2);
+    glLoadIdentity();
+    glOrtho(-8, 8, -8, 8, -8, 8);
+    gluLookAt(1, 1, 1, 0, 0, 0, 0, 1, 0);
+}
+void viewport_top_left() {
+    glViewport(0, height / 2, width / 2, height / 2);
+    glLoadIdentity();
+    glOrtho(-8, 8, -8, 8, -8, 8);
+    gluLookAt(1, 1, 1, 0, 0, 0, 0, 1, 0);
+}
+void viewport_top_right() {
+    glViewport(width / 2, height / 2, width / 2, height / 2);
+    glLoadIdentity();
+    glOrtho(-8, 8, -8, 8, -8, 8);
+    gluLookAt(1, 1, 1, 0, 0, 0, 0, 1, 0);
+}
 void myKeyboard(unsigned char theKey, int mouseX, int mouseY) {
 
     //Key Q - Quit
@@ -662,26 +967,54 @@ void myInit() {
     gluLookAt(1, 1, 1, 0, 0, 0, 0, 1, 0);
 
 }
+static void reshape(int w, int h) {
+    width = w;
+    height = h;
+    //glClear(GL_COLOR_BUFFER_BIT);
+    glPointSize(4.0);
+    glLineWidth(4.0);
+    //glLoadIdentity();
+    glViewport(16, 16, WIDTH, HEIGHT);       //viewport glViewport(xvmin, yvmin, widgth, height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
 
-void myDisplay(void) {
-    showAllRender();
-    glutKeyboardFunc(myKeyboard);
 }
+void myDisplay(void) {
+    glutKeyboardFunc(myKeyboard);
+    glClear(GL_COLOR_BUFFER_BIT);
 
+    viewport_top_left();
+    showLight_Directed_top_left();
+    moveLight();
+
+    viewport_top_right();
+    showLight_Directed_top_right();
+    moveLight();
+
+    viewport_bottom_left();
+    showLight_Directed_bottom_left();
+    moveLight();
+
+    viewport_bottom_right();
+    showLight_Directed_bottom_right();
+    moveLight();
+
+    glFlush();
+}
 int main(int argc, char** argv) {
     glutInit(&argc, argv);  // initialize the toolkit
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);   //set display mode
-
     //task: window should not be in the "origin" of the screen
     glutInitWindowSize(1024, 1024);     //set window size
     glutInitWindowPosition(300, 300);
-
     //start the screen window
     glutCreateWindow("Assignment_S3_HieuHuynh - Manipulate Light Meshes - Type Q or q to quit");
+    glClearColor(0.0, 0.0, 0.0, 0.0);
+    //glShadeModel(GL_FLAT);
     glutDisplayFunc(myDisplay);     //register redraw function
-    myInit();
+    //myInit();
+    glutReshapeFunc(reshape);
     glutMainLoop();                  //go into a perpetual loop
-
     return 0;
 }
 
