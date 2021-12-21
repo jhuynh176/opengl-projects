@@ -1,4 +1,4 @@
-/*
+﻿/*
    Name:           Hieu Huynh
    Project:        S5
    Description:    This program manipulate texture
