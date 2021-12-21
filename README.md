@@ -13,7 +13,7 @@ small_project_s5 - manipulating curves
 4. [Manipulate Textures and Shading](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/small_project_s4)
 5. [Manipulate Curves](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/small_project_s5)
 
-6. [Creating a Turtle Graphic Program](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/)
+6. [Creating a Turtle Graphic Program](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/project_turtle_graphic)
 ## Introduction:
 - This is the repository to store my OpenGL using C/C++ languages projects based on my growing skills.
 
