@@ -7,12 +7,13 @@ small_project_s5 - manipulating curves
 # My OpenGL - C++ Projects
 
 ## Link to Programs
-1. [Create Set of Objects]()
-2. [Manipulate Set of Objects]()
-3. [Manipulate Set of Light Sources]()
-4. [Manipulate Textures and Shading]()
-5. [Manipulate Curves]()
+1. [Create Set of Objects](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/small_project_s1)
+2. [Manipulate Set of Objects](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/small_project_s2)
+3. [Manipulate Set of Light Sources](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/small_project_s3)
+4. [Manipulate Textures and Shading](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/small_project_s4)
+5. [Manipulate Curves](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/small_project_s5)
 
+6. [Creating a Turtle Graphic Program](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/)
 ## Introduction:
 - This is the repository to store my OpenGL using C/C++ languages projects based on my growing skills.
 
