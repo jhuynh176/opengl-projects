@@ -24,11 +24,10 @@
 </h2>
 
 ### 3. [Manipulate Set of Light Sources](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/manipulate_light_sources)
+| | |
+|:-------------------------:|:-------------------------:|
+|<img width="1604" alt="project_s3" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_light_sources/Project_S3_Scene_1.png">| <img width="1604" alt="project_s3" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_light_sources/Project_S3_Scene_2.png">|
 
-<h2 align="center">
-  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_light_sources/Project_S3_Scene_2.png" alt="project_s3" width="500px" />
-  <br>
-</h2>
 
 ### 4. [Manipulate Textures and Shading](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/manipulate_textures_and_shading)
 
