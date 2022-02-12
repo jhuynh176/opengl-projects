@@ -3,11 +3,11 @@
 ## Final sample:
 
 <h2 align="center">
-  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/Screenshot-03-PlotingTheCsvFile.png" alt="project_s2" width="1000px" />
+  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/Screenshot-03-PlotingTheCsvFile.png" alt="final_sample" width="1000px" />
   <br>
 </h2>
 
-## Description:
+## Description 📄:
 The goal of this project is to construct a simulator of boat activities. The boats are assumed to be inside or outside of a grid of N x N pixels, which is further divided into subregions.
 ### Main components:
 ⚡️ Simulation Mechanism\
@@ -15,7 +15,7 @@ The goal of this project is to construct a simulator of boat activities. The boa
 ⚡️ File Menu Interface\
 ⚡️ Simulation Engine
 
-## Simulation Mechanism: 
+## Simulation Mechanism 🛠️: 
 - Time driven mechanism
 - Grid size
 - Boats' initial location
@@ -23,7 +23,7 @@ The goal of this project is to construct a simulator of boat activities. The boa
 - Simulation duration be the event that two boats are "too close to each other" or a specific boat is in a specific subregion of grid
 - Trajectory of the boats
 
-## Boat activities widgets include:
+## Boat activities widgets include 🛠️:
 1. Map size
 2. Boat X is folowwing boat Y
 3. Boat X is chasing boat Y
@@ -31,11 +31,11 @@ The goal of this project is to construct a simulator of boat activities. The boa
 5. Boat Y and boat Z are approaching each other
 
 <h2 align="center">
-  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s1.png" alt="s1" width="70%" />
+  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s1.png" alt="widget" width="70%" />
   <br>
 </h2>
 
-## Adding Menu Fnterface:
+## Adding Menu Fnterface 🛠️:
 - Docking widgets
 - Add a file items drop-down menu
 - Add a text-edit area
@@ -43,11 +43,11 @@ The goal of this project is to construct a simulator of boat activities. The boa
 - Add a help menu
 
 <h2 align="center">
-  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s2_3.png" alt="s2" width="70%" />
+  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s2_3.png" alt="menu" width="70%" />
   <br>
 </h2>
 
-## Implement Simulation Engine:
+## Implement Simulation Engine 🛠️:
 ### Engine: 
 - Check system status
 - Make a decision
@@ -57,10 +57,27 @@ The goal of this project is to construct a simulator of boat activities. The boa
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="1604" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update1.png"> |  <img width="1604" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update2a.png">|<img width="1604" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update3.png">|
-
+|<img width="600" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update1.png"> Tracking |  <img width="600" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update2a.png"> Event Reached |<img width="600" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update3.png"> Times Up|
 
 <h2 align="center">
-  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update.png" alt="s2" width="70%" />
+  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update.png" alt="engine" width="70%" />
   <br>
 </h2>
+
+## Tracking and Analyzing 🛠️:
+- Develop an embedded function to read and write .csv file
+- Tracking boat location
+
+| | | 
+|:-------------------------:|:-------------------------:|
+|<img width="500" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s4_analyze.png"> Read and Write to files |  <img width="900" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s4_track.png"> Track boats location |
+
+## Grid Map 🛠️:
+
+<h2 align="center">
+  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/grid_map.png" alt="map" width="70%" />
+  <br>
+</h2>
+
+
+
