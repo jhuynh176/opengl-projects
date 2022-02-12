@@ -24,10 +24,11 @@ The goal of this project is to construct a simulator of boat activities. The boa
 - Trajectory of the boats
 
 ## Boat activities widgets include:
-1. Boat X is folowwing boat Y
-2. Boat X is chasing boat Y
-3. Boat X is circling boat Y
-4. Boat Y and boat Z are approaching each other
+1. Map size
+2. Boat X is folowwing boat Y
+3. Boat X is chasing boat Y
+4. Boat X is circling boat Y
+5. Boat Y and boat Z are approaching each other
 
 <h2 align="center">
   <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s1.png" alt="s1" width="70%" />
@@ -42,7 +43,7 @@ The goal of this project is to construct a simulator of boat activities. The boa
 - Add a help menu
 
 <h2 align="center">
-  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s2_2.png" alt="s2" width="70%" />
+  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s2_3.png" alt="s2" width="70%" />
   <br>
 </h2>
 
@@ -53,3 +54,13 @@ The goal of this project is to construct a simulator of boat activities. The boa
 - Update system status
 - Collect data
 - Check for exceptions
+
+| | | |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="1604" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update1.png"> |  <img width="1604" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update2a.png">|<img width="1604" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update3.png">|
+
+
+<h2 align="center">
+  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s3_update.png" alt="s2" width="70%" />
+  <br>
+</h2>
