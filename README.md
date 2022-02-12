@@ -32,7 +32,7 @@
 ### 4. [Manipulate Textures and Shading](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/manipulate_textures_and_shading)
 
 <h2 align="center">
-  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_textures_and_shading/Screenshot_S4_HieuHuynh.png" alt="project_s4" width="500px" />
+  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_textures_and_shading/Screenshot_S4.png" alt="project_s4" width="500px" />
   <br>
 </h2>
 
