@@ -1,11 +1,7 @@
 /*
    Name:           Hieu Huynh
-   Project:        S5
+   Project:        Manipulate Curves and Surface
    Description:    This program manipulate texture
-
-   Requirement:     
-        - Add curves and surfaces
-       
 
 */
 #pragma comment (lib, "opengl32.lib")
