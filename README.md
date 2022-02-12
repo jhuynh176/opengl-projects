@@ -2,9 +2,9 @@
 
 ## Features
 
-⚡️ Modern UI Design 
-⚡️ Reveal Animations
-⚡️ OpenGL Graphical design
+⚡️ Modern UI Design\
+⚡️ Reveal Animations\
+⚡️ OpenGL Graphical design\
 ⚡️ Well organized documentation
 
 ## List of Project:
