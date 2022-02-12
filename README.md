@@ -39,7 +39,7 @@
 ### 5. [Manipulate Curves and Surfaces](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/manipulate_curves_and_surface)
 
 <h2 align="center">
-  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_curves_and_surface/Screenshot_S5_HieuHuynh.png" alt="project_s5" width="500px" />
+  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_curves_and_surface/Screenshot_S5.png" alt="project_s5" width="500px" />
   <br>
 </h2>
 
