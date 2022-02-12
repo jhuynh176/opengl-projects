@@ -1,6 +1,6 @@
 # Boat Simulation GUI
 
-## Final sample:
+## Final `Sample`:
 
 <h2 align="center">
   <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/Screenshot-03-PlotingTheCsvFile.png" alt="final_sample" width="1000px" />
@@ -15,7 +15,7 @@ The goal of this project is to construct a simulator of boat activities. The boa
 ⚡️ File Menu Interface\
 ⚡️ Simulation Engine
 
-## Simulation Mechanism 🛠️: 
+## Simulation `Mechanism` 🛠️: 
 - Time driven mechanism
 - Grid size
 - Boats' initial location
@@ -23,7 +23,7 @@ The goal of this project is to construct a simulator of boat activities. The boa
 - Simulation duration be the event that two boats are "too close to each other" or a specific boat is in a specific subregion of grid
 - Trajectory of the boats
 
-## Boat activities widgets include 🛠️:
+## Boat `Action Widgets` include 🛠️:
 1. Map size
 2. Boat X is folowwing boat Y
 3. Boat X is chasing boat Y
@@ -35,7 +35,7 @@ The goal of this project is to construct a simulator of boat activities. The boa
   <br>
 </h2>
 
-## Adding Menu Fnterface 🛠️:
+## Adding `Menu Interface` 🛠️:
 - Docking widgets
 - Add a file items drop-down menu
 - Add a text-edit area
@@ -47,7 +47,7 @@ The goal of this project is to construct a simulator of boat activities. The boa
   <br>
 </h2>
 
-## Implement Simulation Engine 🛠️:
+## Implement Simulation `Engine` 🛠️:
 ### Engine: 
 - Check system status
 - Make a decision
@@ -64,7 +64,7 @@ The goal of this project is to construct a simulator of boat activities. The boa
   <br>
 </h2>
 
-## Tracking and Analyzing 🛠️:
+## `Tracking and Analyzing` 🛠️:
 - Develop an embedded function to read and write .csv file
 - Tracking boat location
 
@@ -72,7 +72,7 @@ The goal of this project is to construct a simulator of boat activities. The boa
 |:-------------------------:|:-------------------------:|
 |<img width="500" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s4_analyze.png"> Read and Write to files |  <img width="900" alt="engine" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/s4_track.png"> Track boats location |
 
-## Grid Map 🛠️:
+## `Grid Map` 🛠️:
 
 <h2 align="center">
   <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/example/grid_map.png" alt="map" width="70%" />
