@@ -33,7 +33,7 @@
 
 | | |
 |:-------------------------:|:-------------------------:|
-|<img width="1604" alt="project_s4" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_textures_and_shading/Screenshot_S4.png">| <img width="1604" alt="project_s4" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_textures_and_shading/Screenshot_S4_Debug.png">|
+|<img width="1000" alt="project_s4" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_textures_and_shading/Screenshot_S4.png">| <img width="500" alt="project_s4" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_textures_and_shading/Screenshot_S4_Debug1.png"> Debugging|
 
 ### 5. [Manipulate Curves and Surfaces](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/manipulate_curves_and_surface)
 
@@ -44,13 +44,6 @@
 
 ### 6. [Creating a Turtle Graphic Program](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/project_turtle_graphic)
 
-<h2 align="center">
-  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/project_turtle_graphic/Sample_Output_1a.png" alt="project_s6" width="500px" />
-  <br>
-</h2>
-
-<h2 align="center">
-  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/project_turtle_graphic/Debug_Output.png" alt="project_s3" width="500px" />
-  <br>
-</h2>
-
+| | |
+|:-------------------------:|:-------------------------:|
+|<img width="1000" alt="project_s4" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/project_turtle_graphic/Sample_Output_1b.png">| <img width="500" alt="project_s4" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/project_turtle_graphic/Debug_Output.png"> Debugging|
