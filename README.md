@@ -26,7 +26,7 @@
 ### 3. [Manipulate Set of Light Sources](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/manipulate_light_sources)
 
 <h2 align="center">
-  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_light_sources/Project_S3_Scene_2_Screenshot.png" alt="project_s3" width="500px" />
+  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/manipulate_light_sources/Project_S3_Scene_2.png" alt="project_s3" width="500px" />
   <br>
 </h2>
 
