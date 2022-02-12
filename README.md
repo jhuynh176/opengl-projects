@@ -10,6 +10,8 @@
 7. [Creating a Turtle Graphic Program](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/project_turtle_graphic)
 
 ## Project Showcase Samples:
+### 1. [Boat Simulation GUI](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/boat_simulation_gui)
+
 ### 2. [Create Set of Objects](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/creating_objects)
 
 | | | |
