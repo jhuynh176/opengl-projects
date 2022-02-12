@@ -12,6 +12,11 @@
 ## Project Showcase Samples:
 ### 1. [Boat Simulation GUI](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/boat_simulation_gui)
 
+<h2 align="center">
+  <img src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/boat_simulation_gui/Screenshot-03-PlotingTheCsvFile.png" alt="project_s2" width="1000px" />
+  <br>
+</h2>
+
 ### 2. [Create Set of Objects](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/creating_objects)
 
 | | | |
