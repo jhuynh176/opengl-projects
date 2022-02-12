@@ -9,7 +9,11 @@
 
 ## Description:
 The goal of this project is to construct a simulator of boat activities. The boats are assumed to be inside or outside of a grid of N x N pixels, which is further divided into subregions.
-- 
+### Main components:
+⚡️ Simulation Mechanism\
+⚡️ Boat Activities Widgets\
+⚡️ File Menu Interface\
+⚡️ Simulation Engine
 
 ## Simulation Mechanism: 
 - Time driven mechanism
@@ -30,7 +34,7 @@ The goal of this project is to construct a simulator of boat activities. The boa
   <br>
 </h2>
 
-## Adding Menu interface:
+## Adding Menu Fnterface:
 - Docking widgets
 - Add a file items drop-down menu
 - Add a text-edit area
