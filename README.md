@@ -10,7 +10,11 @@
 
 ### 1. [Create Set of Objects](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/creating_objects)
 
-
+| | | |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="1604" alt="point" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/creating_objects/Output_Point.png">  |  <img width="1604" alt="line" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/creating_objects/Output_Line.png">||
+|<img width="1604" alt="triangle" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/creating_objects/Output_Triangle.png">|  <img width="1604" alt="square" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/creating_objects/Output_Square.png">  |<img width="1604" alt="hexagon" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/creating_objects/Output_Hexagon.png">|
+|<img width="1604" alt="circle" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/creating_objects/Output_Circle_Radius_of_1.5.png">|<img width="1604" alt="cube" src="https://github.com/jhuynh176/opengl-projects-CPP-based/blob/main/creating_objects/Output_cUbe.png">|||
 
 ### 2. [Manipulate Set of Objects](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/manipulate_objects)
 
