@@ -1,5 +1,12 @@
 # My OpenGL - C++ Projects
 
+## Features
+
+⚡️ Modern UI Design 
+⚡️ Reveal Animations
+⚡️ OpenGL Graphical design
+⚡️ Well organized documentation
+
 ## List of Project:
 1. [Boat Simulation GUI](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/boat_simulation_gui)
 2. [Create Set of Objects](https://github.com/jhuynh176/opengl-projects-CPP-based/tree/main/creating_objects)
